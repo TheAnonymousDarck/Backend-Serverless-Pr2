@@ -4,13 +4,16 @@ key = Fernet.generate_key()
 
 f = Fernet(key)
 print('Clave \n' + str(key) + '\n')
+m = 'hola'
+# msg = bytes(m, encoding='utf-8')
+msg = m.encode()
 
-token = f.encrypt(b"Mensaje que se va a encriptar")
+token = f.encrypt(msg)
 print(token)
 
 decryptToken = f.decrypt(token)
 print(decryptToken)
-print(token)
+# print(token)
 
-token = f.decrypt(token)
-print(token)
+# token = f.decrypt(token)
+# print(token)
